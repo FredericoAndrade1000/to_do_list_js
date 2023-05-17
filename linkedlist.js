@@ -118,7 +118,7 @@ class LinkedList {
   }
   getElementByIndex(index) {
     if (index < 0 || index >= this.length) {
-      return null; // índice inválido
+      return null;
     }
 
     let currentNode = this.head;
@@ -131,39 +131,26 @@ class LinkedList {
 
     return currentNode.data;
   }
-  getOldestTask() {
-    let oldestTask = null;
-    let currentNode = this.head;
-    
-    while (currentNode !== null) {
-      if (oldestTask === null || currentNode.data.date < oldestTask.date) {
-        oldestTask = currentNode.data;
-      }
-      currentNode = currentNode.next;
-    }
-    
-    return oldestTask;
-  }
   deleteAtIndex(index) {
     if (index < 0 || index >= this.length) {
-      return null; // índice inválido
+      return null;
     }
 
     let currentNode = this.head;
 
     // Se for o primeiro elemento da lista
-    if (index === 0) {
+    if (index == 0) {
       this.head = currentNode.next;
 
       // Se a lista tiver apenas um elemento, atualize a cauda também
-      if (this.length === 1) {
+      if (this.length == 1) {
         this.tail = null;
       } else {
         this.head.prev = null;
       }
 
     // Se for o último elemento da lista
-    } else if (index === this.length - 1) {
+    } else if (index == this.length - 1) {
       currentNode = this.tail;
       this.tail = currentNode.prev;
       this.tail.next = null;
